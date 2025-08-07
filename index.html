@@ -46,61 +46,99 @@
       text-decoration: none;
     }
 
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 100vh;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
-      color: white;
-      padding: 20px;
-    }
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: white;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 1;
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      animation: fadeInDown 1s ease;
-    }
+.hero-content {
+  max-width: 1000px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
 
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 700px;
-      animation: fadeInUp 1s ease;
-    }
+.hero h1 {
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  animation: fadeInDown 0.8s ease-out forwards;
+  opacity: 0;
+}
 
-    .hero .cta-btn {
-      margin-top: 30px;
-      padding: 12px 28px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-      background-color: #00bcd4;
-      color: white;
-      text-decoration: none;
-      transition: background 0.3s ease;
-      animation: fadeIn 2s ease;
-    }
+.highlight {
+  background: #b6f3b6;
+  padding: 0 15px;
+  border-radius: 8px;
+  color: #333;
+  display: inline-block;
+}
 
-    .hero .cta-btn:hover {
-      background-color: #0097a7;
-    }
+.hero p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+.hero .cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  background: #b6f3b6;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.hero .cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(182, 243, 182, 0.4);
+}    @keyframes fadeInDown {
+      0% { 
+        opacity: 0; 
+        transform: translateY(-30px);
+      }
+      100% { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      0% { 
+        opacity: 0; 
+        transform: translateY(30px);
+      }
+      100% { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      0% { 
+        opacity: 0;
+      }
+      100% { 
+        opacity: 1;
+      }
     }
 
     .container {
@@ -222,24 +260,32 @@
     </div>
   </nav>
 
-  <section id="home" class="hero">
-    <h1>Hi, I'm Osagie Owie</h1>
-    <p>Data Analyst & Developer. I transform raw data into meaningful insights and intuitive software — blending analytics with innovation.</p>
-    <a href="#projects" class="cta-btn">View My Work</a>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Technology can <span class="highlight">transform</span> the world!</h1>
+        <p>IT Professional specializing in systems infrastructure, network administration, and technical solutions that drive business efficiency and innovation.</p>
+        <a href="#projects" class="cta-btn">Get Started →</a>
+      </div>
   </section>
 
   <section id="about" class="about">
     <div class="container">
       <h2>About Me</h2>
-      <p>I’m a Computer Science graduate and data analyst with a passion for solving real-world problems through code, storytelling, and evidence-based insights.</p>
-      <h3>Skills</h3>
+      <p>I'm an experienced IT Professional with a Computer Science degree and a deep passion for networking and systems support. My expertise lies in delivering exceptional technical solutions while ensuring superior end-user experiences. Currently pursuing CCNA certification to further enhance my networking capabilities.</p>
+      <h3>Technical Expertise</h3>
       <ul class="skills">
-        <li>Python</li>
-        <li>SQL (MySQL, PostgreSQL, SQLite)</li>
-        <li>Tableau</li>
-        <li>Power BI</li>
-        <li>Socket Programming</li>
-        <li>Data Visualization</li>
+        <li>Active Directory Management</li>
+        <li>System Administration</li>
+        <li>Hardware Troubleshooting</li>
+        <li>Network Infrastructure</li>
+        <li>Computer Imaging</li>
+        <li>Help Desk Support</li>
+        <li>Ticketing Systems</li>
+        <li>Windows/Linux OS</li>
+        <li>IT Security</li>
+        <li>User Account Management</li>
+        <li>Technical Documentation</li>
+        <li>Problem Resolution</li>
       </ul>
     </div>
   </section>
@@ -257,9 +303,39 @@
 
   <section id="resume" class="resume">
     <div class="container">
-      <h2>Resume</h2>
-      <p>Download a copy of my resume:</p>
-      <a href="Osagie_Owie_Resume.pdf" class="cta-btn" target="_blank">Download PDF</a>
+      <h2>Professional Experience</h2>
+      <div class="resume-content">
+        <div class="resume-section">
+          <h3>Core Responsibilities</h3>
+          <div class="experience-item">
+            <h4>IT Systems Support Specialist</h4>
+            <ul class="experience-list">
+              <li>Managing and maintaining Active Directory user accounts and group policies</li>
+              <li>Executing computer imaging and deployment processes</li>
+              <li>Providing comprehensive hardware and software troubleshooting</li>
+              <li>Implementing and maintaining ticketing system workflows</li>
+              <li>Ensuring efficient resolution of technical issues and user requests</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="resume-section">
+          <h3>Qualifications</h3>
+          <div class="education-item">
+            <h4>Bachelor's Degree in Computer Science</h4>
+            <p>Strong foundation in technical concepts and problem-solving methodologies</p>
+          </div>
+          <div class="education-item">
+            <h4>CCNA Certification (In Progress)</h4>
+            <p>Advancing expertise in network administration and infrastructure management</p>
+          </div>
+          <div class="education-item">
+            <h4>Professional Certifications</h4>
+            <p>Various IT support and systems administration certifications</p>
+          </div>
+        </div>
+      </div>
+      <a href="Osagie_Owie__Resume.docx" class="cta-btn" target="_blank">Download Full Resume</a>
     </div>
   </section>
 
@@ -268,9 +344,9 @@
       <h2>Contact Me</h2>
       <p>Interested in working together?</p>
       <ul>
-        <li>Email: osayiowie1@gmail.com</li>
+        <li>Email: osagieowie99@gmail.com</li>
         <li>LinkedIn: <a href="https://linkedin.com/in/osagieowie" target="_blank">linkedin.com/in/osagieowie</a></li>
-        <li>GitHub: <a href="https://github.com/Osayi123" target="_blank">github.com/Osayi123</a></li>
+        <li>GitHub: <a href="https://github.com/Osagie8" target="_blank">github.com/Osagie8</a></li>
       </ul>
     </div>
   </section>
@@ -282,31 +358,31 @@
   <script>
     const projects = [
       {
-        title: "ChitChat: TCP Chat App",
-        problem: "Build a real-time chat platform using Python",
-        process: "Used sockets, threading, SQLite, and authentication",
-        result: "Supported private messaging, live rooms, and login",
-        tools: "Python, SQLite, Socket, Rich",
-        image: "https://via.placeholder.com/600x200?text=ChitChat+Screenshot",
-        link: "https://github.com/Osayi123/tcp-chat"
+        title: "Enterprise System Administration",
+        problem: "Streamline user account management and system maintenance processes",
+        process: "Implemented Active Directory management protocols, automated computer imaging, and enhanced ticketing system workflow",
+        result: "Reduced ticket resolution time by 40% and improved system reliability",
+        tools: "Active Directory, Windows Server, SCCM, ServiceNow",
+        image: "https://via.placeholder.com/600x200?text=System+Administration",
+        link: "#"
       },
       {
-        title: "Superstore Analysis",
-        problem: "Identify loss-making subcategories and profit centers",
-        process: "Used Tableau and SQL to explore and visualize data",
-        result: "Improved profitability insights for business strategy",
-        tools: "Tableau, Power BI, SQL",
-        image: "https://via.placeholder.com/600x200?text=Superstore+Dashboard",
-        link: "https://github.com/Osayi123/superstore-analysis"
+        title: "Network Infrastructure Upgrade",
+        problem: "Modernize and secure network infrastructure for improved performance",
+        process: "Configured network equipment, implemented security protocols, and documented network architecture",
+        result: "Enhanced network security and reduced downtime by 60%",
+        tools: "Cisco Equipment, Network Protocols, Security Tools",
+        image: "https://via.placeholder.com/600x200?text=Network+Infrastructure",
+        link: "#"
       },
       {
-        title: "Hostel Management System",
-        problem: "Manage room assignments and student check-ins",
-        process: "Built desktop GUI using Python and Tkinter",
-        result: "Enabled smooth booking, tracking, and updates",
-        tools: "Python, Tkinter, SQLite",
-        image: "https://via.placeholder.com/600x200?text=Hostel+App",
-        link: "https://github.com/Osayi123/hostel-management"
+        title: "End-User Support Initiative",
+        problem: "Enhance end-user support efficiency and satisfaction",
+        process: "Developed support documentation, implemented new ticketing workflows, and trained support staff",
+        result: "Achieved 95% user satisfaction rate and reduced repeat tickets",
+        tools: "ServiceDesk, Knowledge Base, Remote Support Tools",
+        image: "https://via.placeholder.com/600x200?text=IT+Support",
+        link: "#"
       }
     ];
 

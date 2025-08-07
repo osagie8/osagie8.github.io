@@ -52,21 +52,55 @@ nav .nav-links a:hover {
 }
 
 .hero {
-  background: url('https://via.placeholder.com/960x300?text=Your+Photo+Here') no-repeat center center/cover;
-  background-color: #e78585;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   color: white;
   text-align: center;
   padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .hero h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 20px;
+  position: relative;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.hero-description {
+  margin: 30px auto;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .cta-btn {
@@ -141,6 +175,59 @@ section a:hover {
 
 .resume, .contact {
   text-align: center;
+}
+
+.resume-content {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.resume-section {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 25px;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.resume-section:hover {
+  transform: translateY(-5px);
+}
+
+.resume-section h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.experience-item, .education-item {
+  margin-bottom: 1.5rem;
+}
+
+.experience-item h4, .education-item h4 {
+  color: #00bcd4;
+  margin-bottom: 1rem;
+}
+
+.experience-list {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-list li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.experience-list li::before {
+  content: "•";
+  color: #00bcd4;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
 }
 
 .resume .cta-btn, .contact .cta-btn {
