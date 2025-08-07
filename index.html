@@ -6,6 +6,103 @@
   <title>Osagie Owie | Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    .code-rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
+
+    .code-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    .code-particle {
+      position: absolute;
+      font-family: monospace;
+      user-select: none;
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    .layer-1 .code-particle {
+      color: rgba(0, 188, 212, 0.15);
+      font-size: 18px;
+      animation: fall-1 linear infinite;
+    }
+
+    .layer-2 .code-particle {
+      color: rgba(0, 188, 212, 0.25);
+      font-size: 16px;
+      animation: fall-2 linear infinite;
+    }
+
+    .layer-3 .code-particle {
+      color: rgba(0, 188, 212, 0.35);
+      font-size: 14px;
+      animation: fall-3 linear infinite;
+    }
+
+    @keyframes fall-1 {
+      0% {
+        transform: translateY(-100%) translateZ(200px) rotateX(10deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.3;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(100vh) translateZ(200px) rotateX(10deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fall-2 {
+      0% {
+        transform: translateY(-100%) translateZ(100px) rotateX(5deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.5;
+      }
+      90% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(100vh) translateZ(100px) rotateX(5deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fall-3 {
+      0% {
+        transform: translateY(-100%) translateZ(0) rotateX(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(100vh) translateZ(0) rotateX(0deg);
+        opacity: 0;
+      }
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -274,6 +371,11 @@
   </style>
 </head>
 <body>
+  <div class="code-rain" id="codeRain">
+    <div class="code-layer layer-1"></div>
+    <div class="code-layer layer-2"></div>
+    <div class="code-layer layer-3"></div>
+  </div>
 
   <nav>
     <div class="container">
@@ -444,6 +546,74 @@
 
     setInterval(showNextProject, 6000);
     renderCarousel();
+
+    // Code Rain Effect with Parallax
+    function createCodeParticle(layer) {
+      const codeStrings = ['const', '=>', '>=', '<=', ';', '{}', '[]', '<>', '+=', 'let', 'var', '==', 'function', 'return', '++'];
+      const particle = document.createElement('span');
+      particle.className = 'code-particle';
+      particle.textContent = codeStrings[Math.floor(Math.random() * codeStrings.length)];
+      
+      // Random position across the width
+      particle.style.left = Math.random() * 100 + '%';
+      
+      // Different speeds for different layers
+      let duration;
+      switch(layer) {
+        case 1:
+          duration = 15 + Math.random() * 5; // Slowest, furthest layer
+          break;
+        case 2:
+          duration = 10 + Math.random() * 5; // Middle layer
+          break;
+        case 3:
+          duration = 5 + Math.random() * 5; // Fastest, closest layer
+          break;
+      }
+      
+      particle.style.animationDuration = `${duration}s`;
+      
+      // Add to specific layer
+      document.querySelector(`.layer-${layer}`).appendChild(particle);
+      
+      // Remove particle after animation
+      setTimeout(() => {
+        particle.remove();
+      }, duration * 1000);
+    }
+
+    // Create particles for each layer
+    function createParticlesForLayer(layer) {
+      return () => createCodeParticle(layer);
+    }
+
+    // Set intervals for each layer with different frequencies
+    setInterval(createParticlesForLayer(1), 500); // Back layer, less frequent
+    setInterval(createParticlesForLayer(2), 400); // Middle layer
+    setInterval(createParticlesForLayer(3), 300); // Front layer, more frequent
+
+    // Create initial particles for each layer
+    for(let layer = 1; layer <= 3; layer++) {
+      for(let i = 0; i < 7; i++) {
+        setTimeout(() => createCodeParticle(layer), Math.random() * 3000);
+      }
+    }
+
+    // Add parallax mouse movement effect
+    document.addEventListener('mousemove', (e) => {
+      const layers = document.querySelectorAll('.code-layer');
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const deltaX = (e.clientX - centerX) / centerX;
+      const deltaY = (e.clientY - centerY) / centerY;
+
+      layers.forEach((layer, index) => {
+        const depth = (index + 1) * 10;
+        const moveX = deltaX * depth;
+        const moveY = deltaY * depth;
+        layer.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+      });
+    });
   </script>
 </body>
 </html>
