@@ -119,9 +119,8 @@ nav .nav-links a:hover {
 
 section {
   padding: 60px 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  margin-bottom: 0;
+  background: transparent;
   color: white;
 }
 

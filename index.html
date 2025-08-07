@@ -16,8 +16,16 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      background-color: #f5f5f5;
+      background: linear-gradient(to bottom, 
+        white 0%, 
+        white 20%,
+        rgba(15, 32, 39, 0.2) 40%,
+        rgba(15, 32, 39, 0.6) 50%,
+        #0f2027 60%,
+        #203a43 80%,
+        #2c5364 100%);
       color: #333;
+      min-height: 100vh;
     }
 
     nav {
@@ -51,10 +59,23 @@
   justify-content: center;
   align-items: center;
   min-height: 90vh;
-  background: white;
+  background: transparent;
   padding: 60px 20px;
   position: relative;
   z-index: 1;
+  margin-bottom: -80px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1));
+  pointer-events: none;
 }
 
 .hero-content {
@@ -72,6 +93,7 @@
   line-height: 1.2;
   animation: fadeInDown 0.8s ease-out forwards;
   opacity: 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .highlight {
@@ -80,16 +102,20 @@
   border-radius: 8px;
   color: #333;
   display: inline-block;
+  box-shadow: 0 4px 15px rgba(182, 243, 182, 0.3);
 }
 
 .hero p {
   font-size: 1.2rem;
-  color: #666;
+  color: #444;
   max-width: 800px;
   margin: 0 auto 40px;
   line-height: 1.6;
   animation: fadeInUp 0.8s ease-out 0.2s forwards;
   opacity: 0;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
 }
 
 .hero .cta-btn {
@@ -199,7 +225,7 @@
     }
 
     .projects {
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  background: transparent;
   padding: 60px 20px;
   color: white;
 }
@@ -224,10 +250,12 @@
     }
 
     footer {
-      background-color: #222;
+      background-color: rgba(34, 34, 34, 0.5);
       color: white;
       text-align: center;
       padding: 20px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     @media(max-width: 768px) {
@@ -264,15 +292,15 @@
       <div class="hero-content">
         <h1>Technology can <span class="highlight">transform</span> the world!</h1>
         <p>IT Professional specializing in systems infrastructure, network administration, and technical solutions that drive business efficiency and innovation.</p>
-        <a href="#projects" class="cta-btn">Get Started →</a>
+        <a href="#projects" class="cta-btn">Projects →</a>
       </div>
   </section>
 
   <section id="about" class="about">
     <div class="container">
-      <h2>About Me</h2>
-      <p>I'm an experienced IT Professional with a Computer Science degree and a deep passion for networking and systems support. My expertise lies in delivering exceptional technical solutions while ensuring superior end-user experiences. Currently pursuing CCNA certification to further enhance my networking capabilities.</p>
-      <h3>Technical Expertise</h3>
+      <h2 style="color: #333; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">About Me</h2>
+      <p style="color: #333; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">I'm an experienced IT Professional with a Computer Science degree and a deep passion for networking and systems support. My expertise lies in delivering exceptional technical solutions while ensuring superior end-user experiences. Currently pursuing CCNA certification to further enhance my networking capabilities.</p>
+      <h3 style="color: #333; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Technical Expertise</h3>
       <ul class="skills">
         <li>Active Directory Management</li>
         <li>System Administration</li>
