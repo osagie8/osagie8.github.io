@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Osagie Owie | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    nav {
+      background-color: #000;
+      color: white;
+      padding: 1rem 0;
+    }
+
+    nav .container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    nav .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav .nav-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero .cta-btn {
+      margin-top: 30px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #00bcd4;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      animation: fadeIn 2s ease;
+    }
+
+    .hero .cta-btn:hover {
+      background-color: #0097a7;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .skills li {
+      background: #00bcd4;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+    .project-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .project-card {
+      flex: 0 0 75%;
+      scroll-snap-align: center;
+      background: rgba(255, 255, 255, 0.15); /* translucent */
+      backdrop-filter: blur(10px); /* frosted glass effect */
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: #fff; /* white text for contrast */
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .projects {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  padding: 60px 20px;
+  color: white;
+}
+
+    .carousel-buttons {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .carousel-buttons button {
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .carousel-buttons button:hover {
+      background-color: #0097a7;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media(max-width: 768px) {
+      .project-card {
+        flex: 0 0 95%;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <h1 class="logo">Osagie Owie</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <h1>Hi, I'm Osagie Owie</h1>
+    <p>Data Analyst & Developer. I transform raw data into meaningful insights and intuitive software — blending analytics with innovation.</p>
+    <a href="#projects" class="cta-btn">View My Work</a>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I’m a Computer Science graduate and data analyst with a passion for solving real-world problems through code, storytelling, and evidence-based insights.</p>
+      <h3>Skills</h3>
+      <ul class="skills">
+        <li>Python</li>
+        <li>SQL (MySQL, PostgreSQL, SQLite)</li>
+        <li>Tableau</li>
+        <li>Power BI</li>
+        <li>Socket Programming</li>
+        <li>Data Visualization</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project-carousel" id="carousel"></div>
+      <div class="carousel-buttons">
+        <button onclick="showPreviousProject()">Previous</button>
+        <button onclick="showNextProject()">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume" class="resume">
+    <div class="container">
+      <h2>Resume</h2>
+      <p>Download a copy of my resume:</p>
+      <a href="Osagie_Owie_Resume.pdf" class="cta-btn" target="_blank">Download PDF</a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Interested in working together?</p>
+      <ul>
+        <li>Email: osayiowie1@gmail.com</li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/osagieowie" target="_blank">linkedin.com/in/osagieowie</a></li>
+        <li>GitHub: <a href="https://github.com/Osayi123" target="_blank">github.com/Osayi123</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Osagie Owie. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const projects = [
+      {
+        title: "ChitChat: TCP Chat App",
+        problem: "Build a real-time chat platform using Python",
+        process: "Used sockets, threading, SQLite, and authentication",
+        result: "Supported private messaging, live rooms, and login",
+        tools: "Python, SQLite, Socket, Rich",
+        image: "https://via.placeholder.com/600x200?text=ChitChat+Screenshot",
+        link: "https://github.com/Osayi123/tcp-chat"
+      },
+      {
+        title: "Superstore Analysis",
+        problem: "Identify loss-making subcategories and profit centers",
+        process: "Used Tableau and SQL to explore and visualize data",
+        result: "Improved profitability insights for business strategy",
+        tools: "Tableau, Power BI, SQL",
+        image: "https://via.placeholder.com/600x200?text=Superstore+Dashboard",
+        link: "https://github.com/Osayi123/superstore-analysis"
+      },
+      {
+        title: "Hostel Management System",
+        problem: "Manage room assignments and student check-ins",
+        process: "Built desktop GUI using Python and Tkinter",
+        result: "Enabled smooth booking, tracking, and updates",
+        tools: "Python, Tkinter, SQLite",
+        image: "https://via.placeholder.com/600x200?text=Hostel+App",
+        link: "https://github.com/Osayi123/hostel-management"
+      }
+    ];
+
+    const carousel = document.getElementById('carousel');
+
+    function renderCarousel() {
+      carousel.innerHTML = '';
+      projects.forEach(project => {
+        const div = document.createElement('div');
+        div.className = 'project-card';
+        div.innerHTML = `
+          <img src=\"${project.image}\" alt=\"${project.title} screenshot\">
+          <h3>${project.title}</h3>
+          <p><strong>Problem:</strong> ${project.problem}</p>
+          <p><strong>Process:</strong> ${project.process}</p>
+          <p><strong>Result:</strong> ${project.result}</p>
+          <p><strong>Tools:</strong> ${project.tools}</p>
+          <a href=\"${project.link}\" target=\"_blank\">View on GitHub</a>
+        `;
+        carousel.appendChild(div);
+      });
+    }
+
+    function showNextProject() {
+      carousel.scrollBy({ left: carousel.offsetWidth + 20, behavior: 'smooth' });
+    }
+
+    function showPreviousProject() {
+      carousel.scrollBy({ left: -carousel.offsetWidth - 20, behavior: 'smooth' });
+    }
+
+    setInterval(showNextProject, 6000);
+    renderCarousel();
+  </script>
+</body>
+</html>
