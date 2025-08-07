@@ -85,9 +85,10 @@ nav .nav-links a:hover {
 
 section {
   padding: 60px 20px;
-  background: #fff;
   margin-bottom: 20px;
   border-radius: 10px;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: white;
 }
 
 section h2 {
@@ -95,19 +96,37 @@ section h2 {
   margin-bottom: 20px;
 }
 
+section a {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+section a:hover {
+  opacity: 0.8;
+}
+
 .skills {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .skills li {
-  background-color: #00bcd4;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: #fff;
-  padding: 5px 10px;
+  padding: 8px 15px;
   border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.skills li:hover {
+  transform: translateY(-2px);
 }
 
 .project {
@@ -122,6 +141,44 @@ section h2 {
 
 .resume, .contact {
   text-align: center;
+}
+
+.resume .cta-btn, .contact .cta-btn {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+  display: inline-block;
+  padding: 12px 28px;
+  margin-top: 20px;
+}
+
+.resume .cta-btn:hover, .contact .cta-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.contact ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.contact li {
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.contact li:hover {
+  transform: translateY(-2px);
 }
 
 footer {
