@@ -339,13 +339,23 @@
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     }
 
-    .project-card img {
+    .project-card img, .project-card .demo-gif {
       width: 100%;
-      max-height: 200px;
-      object-fit: cover;
+      max-height: 300px;
+      object-fit: contain;
       border-radius: 10px;
       margin-bottom: 15px;
       border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 10px;
+    }
+
+    .project-card .demo-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 15px;
     }
 
     .projects {
@@ -566,7 +576,7 @@
         process: "Designed a multi-threaded client-server architecture in Python using sockets, integrated SQLite for message persistence and user auth, and implemented chatroom management and private messaging features",
         result: "Successfully supported 50+ concurrent users in stress tests with sub-100ms message latency and 100% uptime, enhancing communication reliability",
         tools: "Python, socket, threading, SQLite, Wireshark",
-        image: "https://via.placeholder.com/600x200?text=ChitChat+TCP+Chat+App",
+        image: "chitchat-demo.gif",
         link: "https://github.com/Osayi123/ChitChat"
       },
       {
@@ -597,7 +607,8 @@
         const div = document.createElement('div');
         div.className = 'project-card';
         div.innerHTML = `
-          <img src=\"${project.image}\" alt=\"${project.title} screenshot\">
+          <div class="demo-container">
+            <img src=\"${project.image}\" alt=\"${project.title} demo\" class="demo-gif">
           <h3>${project.title}</h3>
           <p><strong>Problem:</strong> ${project.problem}</p>
           <p><strong>Process:</strong> ${project.process}</p>
